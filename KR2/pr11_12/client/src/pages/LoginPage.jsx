@@ -29,7 +29,7 @@ export default function LoginPage() {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-card__header">
-          <div className="brand">⚡ TechStore</div>
+          <div className="brand">📱 PhoneStore</div>
           <h1 className="auth-card__title">Вход в систему</h1>
         </div>
         <form className="form" onSubmit={handleSubmit}>

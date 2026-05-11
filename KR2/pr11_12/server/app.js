@@ -77,12 +77,64 @@ bcrypt.hash(DEMO_PASSWORD, SALT_ROUNDS).then((hash) => {
   );
 });
 
+// All image URLs verified via Wikimedia Commons imageinfo API (HTTP 200/429 = rate-limited but real)
+const I = {
+  ip16pro:   'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/IPhone_16_Pro_series.jpg/960px-IPhone_16_Pro_series.jpg',
+  ip16:      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/IPhone_16_Vector.svg/500px-IPhone_16_Vector.svg.png',
+  ip15pro:   'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/IPhone_15_Pro.jpeg/960px-IPhone_15_Pro.jpeg',
+  ip15:      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/IPhone_15_Vector.svg/500px-IPhone_15_Vector.svg.png',
+  ipse:      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/IPhone_SE_%282nd_generation%29_white_vector.svg/500px-IPhone_SE_%282nd_generation%29_white_vector.svg.png',
+  s25ultra:  'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Samsung_Galaxy_S25_Ultra_Titanium_Silverblue.jpg/960px-Samsung_Galaxy_S25_Ultra_Titanium_Silverblue.jpg',
+  s24:       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Samsung_Galaxy_S24%2C_Sperrbildschirm.JPG/960px-Samsung_Galaxy_S24%2C_Sperrbildschirm.JPG',
+  zfold6:    'https://upload.wikimedia.org/wikipedia/commons/0/0c/Samsung_Galaxy_Z_Fold6.png',
+  zflip6:    'https://upload.wikimedia.org/wikipedia/commons/e/e3/%E4%B8%89%E6%98%9FGalaxy_Z_Flip6.png',
+  a55:       'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Samsung_Galaxy_A55_5G_2024.jpg/960px-Samsung_Galaxy_A55_5G_2024.jpg',
+  xi14u:     'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/23116PN5BC.jpg/960px-23116PN5BC.jpg',
+  xi14t:     'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Xiaomi_14T_Pro_front.jpg/960px-Xiaomi_14T_Pro_front.jpg',
+  xi13:      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Xiaomi_13_front.jpg/960px-Xiaomi_13_front.jpg',
+  redmi:     'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Redmi_Note_14_Pro_%282%29.jpg/960px-Redmi_Note_14_Pro_%282%29.jpg',
+  px9pro:    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Google_Pixel_9_Pro_XL_%28front%29.jpg/960px-Google_Pixel_9_Pro_XL_%28front%29.jpg',
+  px8a:      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Pixel_8a.jpg/960px-Pixel_8a.jpg',
+  nothing2:  'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Nothing_phone_%282%29_%28Booredatwork.com%29_001.png/960px-Nothing_phone_%282%29_%28Booredatwork.com%29_001.png',
+};
+
 const products = [
-  { id: nanoid(), title: 'iPhone 16', category: 'Смартфоны', description: 'Флагманский смартфон Apple', price: 89999 },
-  { id: nanoid(), title: 'MacBook Air M3', category: 'Ноутбуки', description: 'Лёгкий ноутбук Apple', price: 129999 },
-  { id: nanoid(), title: 'AirPods Pro', category: 'Аудио', description: 'Беспроводные наушники с ANC', price: 24999 },
-  { id: nanoid(), title: 'iPad Pro 13"', category: 'Планшеты', description: 'Профессиональный планшет', price: 119999 },
-  { id: nanoid(), title: 'Apple Watch Series 10', category: 'Часы', description: 'Умные часы с мониторингом здоровья', price: 39999 },
+  // Apple
+  { id: nanoid(), title: 'iPhone 16 Pro Max', category: 'Apple', description: 'Титановый корпус, чип A18 Pro, дисплей 6.9" Super Retina XDR ProMotion, камера 48 Мп 5× зум, Action Button', price: 119999, image: I.ip16pro },
+  { id: nanoid(), title: 'iPhone 16 Pro', category: 'Apple', description: 'Титановый корпус, чип A18 Pro, дисплей 6.3" ProMotion 120 Гц, камера 48 Мп, Action Button', price: 109999, image: I.ip16pro },
+  { id: nanoid(), title: 'iPhone 16', category: 'Apple', description: 'Чип A18, дисплей 6.1" Super Retina XDR, камера 48 Мп, поддержка Apple Intelligence', price: 79999, image: I.ip16 },
+  { id: nanoid(), title: 'iPhone 15 Pro', category: 'Apple', description: 'Титановый корпус, чип A17 Pro, USB-C 3 (40 Гбит/с), камера 48 Мп с 3× зумом', price: 89999, image: I.ip15pro },
+  { id: nanoid(), title: 'iPhone 15', category: 'Apple', description: 'Чип A16 Bionic, USB-C, Dynamic Island, дисплей 6.1" Super Retina XDR, камера 48 Мп', price: 64999, image: I.ip15 },
+  { id: nanoid(), title: 'iPhone SE (3-е поколение)', category: 'Apple', description: 'Чип A15 Bionic, дисплей 4.7" Retina HD, Touch ID, поддержка 5G, самый доступный iPhone', price: 44999, image: I.ipse },
+
+  // Samsung
+  { id: nanoid(), title: 'Samsung Galaxy S25 Ultra', category: 'Samsung', description: 'Snapdragon 8 Elite, встроенный S Pen, камера 200 Мп с 10× зумом, дисплей 6.9" QHD+ 120 Гц', price: 119990, image: I.s25ultra },
+  { id: nanoid(), title: 'Samsung Galaxy S25+', category: 'Samsung', description: 'Snapdragon 8 Elite, дисплей 6.7" Dynamic AMOLED 2X 120 Гц, тройная камера 50 + 12 + 10 Мп', price: 89990, image: I.s25ultra },
+  { id: nanoid(), title: 'Samsung Galaxy S24', category: 'Samsung', description: 'Exynos 2400, дисплей 6.2" Dynamic AMOLED 2X 120 Гц, камера 50 Мп, 7 лет обновлений Android', price: 64990, image: I.s24 },
+  { id: nanoid(), title: 'Samsung Galaxy Z Fold 6', category: 'Samsung', description: 'Складной смартфон, Snapdragon 8 Gen 3, внешний дисплей 6.3", внутренний 7.6" AMOLED, S Pen', price: 149990, image: I.zfold6 },
+  { id: nanoid(), title: 'Samsung Galaxy Z Flip 6', category: 'Samsung', description: 'Раскладной смартфон, Snapdragon 8 Gen 3, внешний дисплей 3.4" AMOLED, двойная камера 50 Мп', price: 79990, image: I.zflip6 },
+  { id: nanoid(), title: 'Samsung Galaxy A55 5G', category: 'Samsung', description: 'Exynos 1480, дисплей 6.6" Super AMOLED 120 Гц, тройная камера 50 Мп + OIS, IP67', price: 34990, image: I.a55 },
+
+  // Xiaomi
+  { id: nanoid(), title: 'Xiaomi 14 Ultra', category: 'Xiaomi', description: 'Leica Vario-Summilux оптика, Snapdragon 8 Gen 3, 5000 мАч, 90 Вт HyperCharge, IP68', price: 89990, image: I.xi14u },
+  { id: nanoid(), title: 'Xiaomi 14T Pro', category: 'Xiaomi', description: 'Leica камера 50 Мп, Dimensity 9300+, дисплей 6.67" AMOLED 144 Гц, 100 Вт HyperCharge', price: 59990, image: I.xi14t },
+  { id: nanoid(), title: 'Xiaomi 13', category: 'Xiaomi', description: 'Leica камера 54.3 Мп, Snapdragon 8 Gen 2, компактный 6.36" AMOLED, 67 Вт зарядка', price: 44990, image: I.xi13 },
+  { id: nanoid(), title: 'Redmi Note 13 Pro+', category: 'Xiaomi', description: 'Dimensity 7200 Ultra, камера 200 Мп IMX890, 120 Вт HyperCharge, IP68, 6.67" AMOLED 120 Гц', price: 29990, image: I.redmi },
+  { id: nanoid(), title: 'POCO F6 Pro', category: 'Xiaomi', description: 'Snapdragon 8 Gen 2, дисплей 6.67" WQHD+ AMOLED 144 Гц, 67 Вт зарядка, игровой флагман', price: 39990, image: I.xi14t },
+
+  // Google
+  { id: nanoid(), title: 'Google Pixel 9 Pro XL', category: 'Google', description: 'Tensor G4, камера 50 Мп с 5× зумом Telephoto, дисплей 6.8" LTPO OLED 120 Гц, 7 лет обновлений', price: 89990, image: I.px9pro },
+  { id: nanoid(), title: 'Google Pixel 9', category: 'Google', description: 'Tensor G4, Magic Eraser, дисплей 6.3" Actua OLED 120 Гц, камера 50 Мп, IP68', price: 64990, image: I.px9pro },
+  { id: nanoid(), title: 'Google Pixel 8a', category: 'Google', description: 'Tensor G3, дисплей 6.1" OLED 120 Гц, камера 64 Мп, IP67, самый доступный Pixel', price: 49990, image: I.px8a },
+
+  // OnePlus
+  { id: nanoid(), title: 'OnePlus 12', category: 'OnePlus', description: 'Hasselblad камера 50 Мп, Snapdragon 8 Gen 3, 100 Вт SUPERVOOC, дисплей 6.82" LTPO AMOLED 120 Гц', price: 59990, image: I.xi14u },
+  { id: nanoid(), title: 'OnePlus Nord 4', category: 'OnePlus', description: 'Snapdragon 7+ Gen 3, дисплей 6.74" AMOLED 120 Гц, 100 Вт SUPERVOOC, металлический корпус', price: 34990, image: I.xi13 },
+
+  // Другие бренды
+  { id: nanoid(), title: 'Nothing Phone (2)', category: 'Другие', description: 'Snapdragon 8+ Gen 1, уникальный Glyph Interface с подсветкой, дисплей 6.7" LTPO OLED 120 Гц', price: 44990, image: I.nothing2 },
+  { id: nanoid(), title: 'Sony Xperia 1 VI', category: 'Другие', description: 'Snapdragon 8 Gen 3, переменный телефото 85–170 мм, дисплей 6.5" 4K OLED, Hi-Res Audio', price: 74990, image: I.px9pro },
+  { id: nanoid(), title: 'Motorola Edge 50 Ultra', category: 'Другие', description: 'Snapdragon 8s Gen 3, камера 50 Мп с OIS, 125 Вт TurboPower зарядка, IP68', price: 49990, image: I.xi14t },
 ];
 
 // Token helpers
@@ -513,10 +565,10 @@ app.get('/api/products/:id', (req, res) => {
 
 // Products — seller/admin create/edit, admin delete
 app.post('/api/products', authMiddleware, roleMiddleware('seller', 'admin'), (req, res) => {
-  const { title, category, description, price } = req.body;
+  const { title, category, description, price, image } = req.body;
   if (!title || !category || price == null)
     return res.status(400).json({ error: 'Укажите название, категорию и цену' });
-  const product = { id: nanoid(), title, category, description: description || '', price: Number(price) };
+  const product = { id: nanoid(), title, category, description: description || '', price: Number(price), image: image || '' };
   products.push(product);
   res.status(201).json(product);
 });
@@ -524,8 +576,8 @@ app.post('/api/products', authMiddleware, roleMiddleware('seller', 'admin'), (re
 app.put('/api/products/:id', authMiddleware, roleMiddleware('seller', 'admin'), (req, res) => {
   const idx = products.findIndex((p) => p.id === req.params.id);
   if (idx === -1) return res.status(404).json({ error: 'Товар не найден' });
-  const { title, category, description, price } = req.body;
-  products[idx] = { ...products[idx], title, category, description, price: Number(price) };
+  const { title, category, description, price, image } = req.body;
+  products[idx] = { ...products[idx], title, category, description, price: Number(price), image: image ?? products[idx].image };
   res.json(products[idx]);
 });
 

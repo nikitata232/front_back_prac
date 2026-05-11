@@ -33,7 +33,7 @@ export default function App() {
         <Routes>
           <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
           <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
-          <Route path="/products" element={<PrivateRoute><ProductsPage /></PrivateRoute>} />
+          <Route path="/products" element={<ProductsPage />} />
           <Route path="/users" element={<AdminRoute><UsersPage /></AdminRoute>} />
           <Route path="*" element={<Navigate to="/products" replace />} />
         </Routes>

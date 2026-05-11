@@ -61,14 +61,23 @@ export default function ProductsPage() {
     <div className="page">
       <header className="header">
         <div className="header__inner">
-          <div className="brand">⚡ TechStore</div>
+          <div className="brand">📱 PhoneStore</div>
           <div className="header__right">
-            {user?.role === 'admin' && (
-              <Link to="/users" className="nav-link">Пользователи</Link>
+            {user ? (
+              <>
+                {user.role === 'admin' && (
+                  <Link to="/users" className="nav-link">Пользователи</Link>
+                )}
+                <span className={`role-badge role-badge--${user.role}`}>{user.role}</span>
+                <span className="user-info">{user.first_name} {user.last_name}</span>
+                <button className="btn btn--logout" onClick={logout}>Выйти</button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="nav-link">Войти</Link>
+                <Link to="/register" className="btn btn--primary">Регистрация</Link>
+              </>
             )}
-            <span className={`role-badge role-badge--${user?.role}`}>{user?.role}</span>
-            <span className="user-info">{user?.first_name} {user?.last_name}</span>
-            <button className="btn btn--logout" onClick={logout}>Выйти</button>
           </div>
         </div>
       </header>
@@ -107,7 +116,7 @@ export default function ProductsPage() {
       </main>
 
       <footer className="footer">
-        <div className="footer__inner">© {new Date().getFullYear()} TechStore</div>
+        <div className="footer__inner">© {new Date().getFullYear()} PhoneStore</div>
       </footer>
 
       {canManage && (

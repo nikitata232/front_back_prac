@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function ProductItem({ product, onEdit, onDelete }) {
-  const { id, title, category, description, price } = product;
+  const { id, title, category, description, price, image } = product;
+  const [imgFailed, setImgFailed] = useState(false);
 
   return (
     <div className="card">
+      {image && !imgFailed
+        ? <img src={image} alt={title} className="card__img" onError={() => setImgFailed(true)} />
+        : <div className="card__img card__img--fallback">📱</div>
+      }
       <div className="card__header">
         <span className="card__name">{title}</span>
         <span className="card__category">{category}</span>

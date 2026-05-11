@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const empty = { title: '', category: '', description: '', price: '' };
+const empty = { title: '', category: '', description: '', price: '', image: '' };
 
 export default function ProductModal({ open, mode, initialProduct, onClose, onSubmit }) {
   const [form, setForm] = useState(empty);
@@ -45,6 +45,10 @@ export default function ProductModal({ open, mode, initialProduct, onClose, onSu
           <label className="label">
             Описание
             <textarea className="textarea" value={form.description} onChange={set('description')} placeholder="Краткое описание товара..." />
+          </label>
+          <label className="label">
+            URL изображения
+            <input className="input" value={form.image} onChange={set('image')} placeholder="https://example.com/image.jpg" />
           </label>
           <div className="modal__footer">
             <button className="btn" type="button" onClick={onClose}>Отмена</button>
