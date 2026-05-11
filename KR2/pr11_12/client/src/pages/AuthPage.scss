@@ -1,0 +1,97 @@
+$bg: #0b0f19;
+$panel: #0f1526;
+$border: rgba(255, 255, 255, 0.10);
+$text: #e7eaf3;
+$primary: rgba(99, 102, 241, 0.55);
+$primaryBg: rgba(99, 102, 241, 0.18);
+$danger: rgba(239, 68, 68, 0.45);
+$dangerBg: rgba(239, 68, 68, 0.12);
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $bg;
+  padding: 16px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: $panel;
+  border: 1px solid $border;
+  border-radius: 16px;
+  overflow: hidden;
+
+  &__header {
+    padding: 24px 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: $text;
+  }
+
+  &__footer {
+    padding: 16px 24px 24px;
+    font-size: 13px;
+    opacity: 0.75;
+    text-align: center;
+  }
+}
+
+.brand { font-weight: 700; font-size: 18px; letter-spacing: 0.3px; }
+
+.form {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; opacity: 0.95; }
+
+.input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  &:focus { border-color: rgba(99, 102, 241, 0.5); }
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+  &:hover:not(:disabled) { opacity: 0.8; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+  &--primary { background: $primaryBg; border-color: $primary; }
+}
+
+.error-msg {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: $dangerBg;
+  border: 1px solid $danger;
+  font-size: 13px;
+  color: #fca5a5;
+}
+
+.link { color: rgba(139, 141, 255, 0.9); text-decoration: none; &:hover { text-decoration: underline; } }
